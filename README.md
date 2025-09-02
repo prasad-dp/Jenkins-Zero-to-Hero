@@ -3,7 +3,7 @@
 
 This guide provides step-by-step instructions to install **Jenkins** on a **Debian-based system** (e.g., Ubuntu) using the official Jenkins repository and Java 17 (required by recent Jenkins versions).
 
-## 📦 Prerequisites
+##  Prerequisites
 
 - A Debian/Ubuntu-based Linux system
 - `sudo` privileges
@@ -15,9 +15,10 @@ This guide provides step-by-step instructions to install **Jenkins** on a **Debi
 
     sudo apt update
 
-### 2. ☕ Install Java 17 (OpenJDK)
+### 2. Install Java 17 (OpenJDK)
 
 Jenkins requires Java to run. Install OpenJDK 17:
+**We are instaiilng JDK to run the jenkins, why because jenkins is developed in JAVA**
 
     sudo apt install openjdk-17-jre
 
