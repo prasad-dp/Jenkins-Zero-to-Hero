@@ -1,0 +1,22 @@
+pipeline {
+    agent {
+        docker {
+            image 'python:3-slim'
+            
+        }
+    }
+
+    stages {
+        stage('Show Python Version and Print Message') {
+            steps {
+                script {
+                    // docker alredy have python so we are printing
+                    sh 'python --version'
+                    
+                    // Run a simple Python script
+                    sh 'python -c "print(\'Hello World\')"'
+                }
+            }
+        }
+    }
+}
