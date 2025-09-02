@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Install and Display Python 3 Version') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        // Logic for Linux/macOS agents
+                        try {
+                            sh 'python3 --version'
+                        } catch (Exception e) {
+                            echo "Python 3 not found on Unix, attempting to install..."
+                            sh '''
+                                // Attempt installation with multiple package managers
+                                sudo apt-get update && sudo apt-get install -y python3 || \
+                                sudo yum install -y python3 || \
+                                sudo dnf install -y python3
+                            '''
+                            sh 'python3 --version' // Verify version after install
+                        }
+                    } else { // This else block corresponds to the if (isUnix()) check
+                        // Handle any other agent types (like Windows)
+                        error("Unsupported agent OS for automated Python installation.")
+                    }
+                }
+            }
+        }
+    }
+}
