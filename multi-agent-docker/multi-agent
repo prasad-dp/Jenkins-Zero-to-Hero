@@ -1,17 +1,23 @@
 pipeline {
   agent none
+
   stages {
-    stage('using agent with node') {
+    stage('Using agent with Node') {
       agent {
-        docker { image 'node:16-alpine' }
+        docker {
+          image 'node:16-alpine'
+        }
       }
       steps {
-        sh 'mvn --version'
+        sh 'node --version'
       }
     }
-    stage('using agent with python') {
+
+    stage('Using agent with Python') {
       agent {
-        docker { image 'python:3-slim' }
+        docker {
+          image 'python:3-slim'
+        }
       }
       steps {
         sh 'python --version'
