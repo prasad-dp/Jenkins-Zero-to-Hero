@@ -6,7 +6,7 @@ pipeline {
         docker { image 'node:16-alpine' }
       }
       steps {
-        sh 'mvn --version'
+        sh 'node --version'
       }
     }
     stage('using agent with python') {
